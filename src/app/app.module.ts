@@ -25,7 +25,7 @@ import { ListRenderComponent } from './components/list-render/list-render.compon
     ChangeNumberComponent,
     ListRenderComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule ],
   providers: [],
   bootstrap: [AppComponent],
 })

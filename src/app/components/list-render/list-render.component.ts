@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Animal } from 'src/app/Animal';
+import { ListService } from 'src/app/services/list-service';
 
 @Component({
   selector: 'app-list-render',
@@ -6,12 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-render.component.css'],
 })
 export class ListRenderComponent implements OnInit {
-  animals = [
-    { name: 'Tuca', type: 'Dog' },
-    { name: 'Tom', type: 'Cat' },
-  ];
+  animals: Animal[] = [];
 
-  constructor() {}
+  constructor(private listService: ListService) {
+    this.getAnimals();
+  }
 
   ngOnInit(): void {}
+
+  getAnimals(): void {
+    this.listService.getAll().subscribe((animals) => (this.animals = animals));
+  }
 }
